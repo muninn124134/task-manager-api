@@ -5,7 +5,7 @@ exports.createTransaction = async (req, res, next) => {
 
         const transaction = await Transaction.create({
             ...req.body,
-            user: req.body.id
+            user: req.user.id
         })
 
         return res.status(201).json(transaction)
@@ -13,7 +13,7 @@ exports.createTransaction = async (req, res, next) => {
     } catch (err) { next(err) }
 }
 
-exports.getTransaction = async (req, res, next) => {
+exports.getTransactions = async (req, res, next) => {
     try {
 
         const transactions = await Transaction.find({ user: req.user.id }).sort({ date: -1 })
