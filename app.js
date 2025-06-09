@@ -7,6 +7,9 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
+const transactionRoutes = require('./src/routes/transactionRoutes.js')
+app.use('/api/v1/transactions', transactionRoutes)
+
 const authRoutes = require('./src/routes/authRoutes.js')
 app.use('/api/v1/auth', authRoutes)
 
