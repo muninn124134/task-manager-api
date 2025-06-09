@@ -30,3 +30,5 @@ const User = new Schema({
 
     userId: objectId
 }, { timestamps: true})
+
+module.exports = User

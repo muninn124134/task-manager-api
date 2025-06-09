@@ -13,10 +13,8 @@ app.use('/api/v1/auth', authRoutes)
 app.use((req, res, next) => {
     res.status(404).json({ 'message': 'Route not found'})
 })
+module.exports = app
 
-app.use((err, req, res, next) => {
-    console.error(err.stack)
-    res.status(err.statusCode || 500).json( {
-        'error' : err.message || 'Internal error'
-    })
-})
+const errorHandler = require('./src/middlewares/errorHandler.js')
+app.use(errorHandler)
+
