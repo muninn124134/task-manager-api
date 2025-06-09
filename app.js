@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
-const authRoutes = require('./src/routes/authRoutes')
+const authRoutes = require('./src/routes/authRoutes.js')
 app.use('/api/v1/auth', authRoutes)
 
 app.use((req, res, next) => {
