@@ -1,4 +1,4 @@
-const User = require('../models/User')
+const User = require('../models/User.js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
@@ -20,6 +20,4 @@ exports.register = async (req, res, next) => {
         res.status(201).json({ 'token': token })
     
     } catch (err) {next(err)}
-
-
 }
