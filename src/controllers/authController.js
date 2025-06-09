@@ -47,3 +47,18 @@ exports.login = async (req, res, next) => {
     } catch (err) { next(err) }
 
 }
+
+exports.getMe = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password') // ignora o campo password
+        if (!user) return res.status(404).json({ message: 'User not found' })
+
+        res.status(200).json({
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            balance: user.balance,
+        })
+
+    } catch (err) { next(err) }
+}
