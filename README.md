@@ -151,7 +151,7 @@ Example for protected routes:
 
 ## 🧑‍💻 Author
 
-Made with 💻 by [Your Name]
+Made with 💻 by Pedro Alencar
 
 ---
 
